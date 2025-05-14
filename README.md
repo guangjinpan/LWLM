@@ -10,6 +10,7 @@ If you have any questions or suggestions, feel free to contact me at **guangjin.
 
 **Task-adaptive decoders for downstream localization tasks:** We develop lightweight task-specific decoders for key downstream localization tasks, including ToA estimation, AoA estimation, single-BS localization, and multi-BS fusion. To support an arbitrary number of BSs, the multi-BS decoder extends single-BS models with an attention-based fusion module that adaptively aggregates the location estimates of each BS.
 
+![Pre-training framework](image.png)
 
 
 ## 🔧 How to Run
