@@ -48,6 +48,8 @@ python train.py \
 
 
 
-#  If you find this work helpful, please consider citing:
+##  Citation
+
+If you find this work helpful, please consider citing:
 
 
