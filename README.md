@@ -53,4 +53,22 @@ python train.py \
 
 If you find this work helpful, please consider citing:
 
+```
+@article{pan2025large,
+  title={Large Wireless Localization Model (LWLM): A Foundation Model for Positioning in 6G Networks},
+  author={Pan, Guangjin and Huang, Kaixuan and Chen, Hui and Zhang, Shunqing and H{\"a}ger, Christian and Wymeersch, Henk},
+  journal={arXiv preprint arXiv:2505.10134},
+  year={2025}
+}
+```
+
+Other recommended papers:
+```
+@article{pan2025ai,
+  title={AI-driven Wireless Positioning: Fundamentals, Standards, State-of-the-art, and Challenges},
+  author={Pan, Guangjin and Gao, Yuan and Gao, Yilin and Zhong, Zhiyong and Yang, Xiaoyu and Guo, Xinyu and Xu, Shugong},
+  journal={arXiv preprint arXiv:2501.14970},
+  year={2025}
+}
+```
 
