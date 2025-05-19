@@ -1,6 +1,6 @@
 # LWLM: Large Wireless Localization Model
 
-This repository contains the implementation of the paper:  **"Large Wireless Localization Model (LWLM): A Foundation Model for Positioning in 6G Networks."**  [pdf](https://arxiv.org/abs/2505.10134)
+This repository contains the implementation of the paper:  **"Large Wireless Localization Model (LWLM): A Foundation Model for Positioning in 6G Networks."**  [[pdf]](https://arxiv.org/abs/2505.10134)
 
 If you have any questions or suggestions, feel free to contact me at **guangjin.pan@chalmers.se**.Thank you very much for your feedback, it can effectively motivate me and help improve this project.
 
