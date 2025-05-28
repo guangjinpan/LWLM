@@ -2,7 +2,9 @@
 
 This repository contains the implementation of the paper:  **"Large Wireless Localization Model (LWLM): A Foundation Model for Positioning in 6G Networks."**  
 
-If you have any questions or suggestions, feel free to contact me at **guangjin.pan@chalmers.se**.Thank you very much for your feedback, it can effectively motivate me and help improve this project.
+If you have any questions or suggestions, feel free to contact me at **guangjin.pan@chalmers.se**. And also, if you need a model for single-BS positioning test, feel free to contact me too.
+
+Thank you very much for your feedback, it can effectively motivate me and help improve this project.
 
 
 ## 🏋️‍♂️ Contributions
@@ -17,6 +19,11 @@ If you have any questions or suggestions, feel free to contact me at **guangjin.
 
 ### 🏋️‍♂️ Pretraining
 
+To generate the test datasets, run:
+```bash
+python data_gen_test.py
+```
+
 To pretrain the model, run:
 
 ```bash
@@ -27,12 +34,12 @@ python train.py \
   --is_load 0 \
   --depth 4 \
   --load_pretrained_mdl_path ../../pretrained_model/pretrain_mix/testepoch=139.ckpt
-
+```
 
 ### 🎯 Fine-tuning
 
 To fine-tune the pretrained model, run:
-
+```bash
 python train.py \
   --task SingleBSLoc \
   --model_path ../../pretrained_model/SingleBSLoc/mix/nofrozen/10000/test2 \
@@ -52,5 +59,21 @@ python train.py \
 ##  Citation
 
 If you find this work helpful, please consider citing:
+```bash
+@article{pan2025large,
+  title={Large Wireless Localization Model (LWLM): A Foundation Model for Positioning in 6G Networks},
+  author={Pan, Guangjin and Huang, Kaixuan and Chen, Hui and Zhang, Shunqing and H{\"a}ger, Christian and Wymeersch, Henk},
+  journal={arXiv preprint arXiv:2505.10134},
+  year={2025}
+}
+```
 
-
+Some other paper:
+```bash
+@article{pan2025ai,
+  title={AI-driven Wireless Positioning: Fundamentals, Standards, State-of-the-art, and Challenges},
+  author={Pan, Guangjin and Gao, Yuan and Gao, Yilin and Zhong, Zhiyong and Yang, Xiaoyu and Guo, Xinyu and Xu, Shugong},
+  journal={arXiv preprint arXiv:2501.14970},
+  year={2025}
+}
+```

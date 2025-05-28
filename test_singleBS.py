@@ -21,7 +21,6 @@ from pytorch_lightning import LightningModule, Trainer
 from torch.utils.data import ConcatDataset
 from torch.utils.data import DataLoader, ConcatDataset, random_split, Dataset
 from pytorch_lightning.callbacks import ModelCheckpoint
-import music
 
 
 EnvPara = {}  
@@ -34,8 +33,8 @@ EnvPara["tshape"]  = 4
 EnvPara["fstride"]  = 4
 EnvPara["tstride"]  = 4
 EnvPara["task"]  = "inference_SingleBSLoc"
-EnvPara["load_pretrained_mdl_path"] =  '../../pretrained_model/FT_SingleBSLoc/mix/nofrozen/10000/testepoch=975.ckpt' 
-EnvPara["save_result_file"] = 'res_mix-nofrozen-10M-10000'
+EnvPara["load_pretrained_mdl_path"] =  './model/SingleBSLoc/testepoch=975.ckpt' 
+EnvPara["save_result_file"] = 'res_mix-nofrozen-10M'
 EnvPara["pretrain_stage"]  = False
 EnvPara["device"]  = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 EnvPara["BS_Num"] = 1
@@ -94,7 +93,7 @@ if __name__ == '__main__':
 
     # save results as txt
     merged = np.hstack((valid_label, valid_result))
-    np.savetxt("../result/"+EnvPara["save_result_file"]+".txt", merged, fmt="%.6f", delimiter=' ')
+    np.savetxt("./result/"+EnvPara["save_result_file"]+".txt", merged, fmt="%.6f", delimiter=' ')
 
     #compute distances
     distances = np.linalg.norm(valid_result - valid_label, axis=1)
@@ -103,4 +102,4 @@ if __name__ == '__main__':
     # Compute mean error
     mean_error = np.mean(np.sqrt(distances ** 2))
 
-    print(f"mean error: {mean_error}, mse:{np.mean(valid_mes)}")
+    print(f"mean error: {mean_error}, loss:{np.mean(valid_mes)}")

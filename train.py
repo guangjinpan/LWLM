@@ -44,8 +44,8 @@ parser.add_argument("--tshape", type=int, default=4)         # patch parametrs
 parser.add_argument("--fstride", type=int, default=4)        # patch parametrs
 parser.add_argument("--tstride", type=int, default=4)        # patch parametrs
 parser.add_argument("--task", type=str, default='SingleBSLoc')
-parser.add_argument("--model_path", type=str, default='../../pretrained_model/SingleBSLoc/pretrain_ant_subc_ed16_64/nofrozen/8000/')
-parser.add_argument("--load_pretrained_mdl_path", type=str, default='../../pretrained_model/pretrain_ant_subc_ed16_64/testepoch=200.ckpt')
+parser.add_argument("--model_path", type=str, default='./model/SingleBSLoc/')
+parser.add_argument("--load_pretrained_mdl_path", type=str, default='./pretrained_model/pretrain_mix/testepoch=200.ckpt')
 parser.add_argument("--pretrain_stage", type=bool, default=True)
 parser.add_argument("--embed_dim", type=int, default=256)
 parser.add_argument("--DTI_embed_dim", type=int, default=96)

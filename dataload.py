@@ -21,7 +21,6 @@ from torch.utils.data import DataLoader, ConcatDataset, random_split, Dataset
 from pytorch_lightning.callbacks import ModelCheckpoint
 import sys
 sys.path.append('../pre_data/')
-from data_path import datapath
 import h5py
 
 
@@ -80,28 +79,28 @@ class generate_Dataset(Dataset):
         self.EnvPara = EnvPara
         self.is_val = is_val
         if self.is_val:
-            self.data_list = np.load("../pre_data/val_1000.npy")
+            self.data_list = np.load("./dataset/val_1000.npy")
             print("../pre_data/val_1000.npy")
         elif self.task == "SingleBSLoc":
-            self.data_list = np.load("../pre_data/train.npy")
+            self.data_list = np.load("./dataset/train.npy")
             self.data_list = self.data_list[ : EnvPara["FT_dataset"]]
         elif self.task == "Compression":
-            self.data_list = np.load("../pre_data/train.npy")
+            self.data_list = np.load("./dataset/train.npy")
             self.data_list = self.data_list[ : EnvPara["FT_dataset"]]
         elif self.task == "MultiBSLoc":
-            self.data_list = np.load("../pre_data/train.npy")
+            self.data_list = np.load("./dataset/train.npy")
             self.data_list = self.data_list[ : EnvPara["FT_dataset"]]
         elif self.task == "cnn":
-            self.data_list = np.load("../pre_data/train.npy")
+            self.data_list = np.load("./dataset/train.npy")
             self.data_list = self.data_list[ : EnvPara["FT_dataset"]]
         elif self.task == "toa":
-            self.data_list = np.load("../pre_data/train.npy")
+            self.data_list = np.load("./dataset/train.npy")
             self.data_list = self.data_list[ : EnvPara["FT_dataset"]]
         elif self.task == "aoa":
-            self.data_list = np.load("../pre_data/train.npy")
+            self.data_list = np.load("./dataset/train.npy")
             self.data_list = self.data_list[ : EnvPara["FT_dataset"]]
         else:
-            self.data_list = np.load("../pre_data/pretrain_data.npy")
+            self.data_list = np.load("./dataset/pretrain_data.npy")
 
         self.len = len(self.data_list)
         print("data_list",len(self.data_list))
@@ -119,7 +118,7 @@ class generate_Dataset(Dataset):
             
             random_number = self.data_list[idx]
             random_BW_1 = self.EnvPara["BW"]
-            data_path = "/mimer/NOBACKUP/groups/e2e_comms/guangjin/DeepMIMO/O1_3p5/"
+            data_path = "./dataset/O1_3p5/train/"
             channel_data_aa = np.zeros((self.EnvPara["BS_Num"],self.input_fmap, self.input_tdim, self.input_fdim))
             channel_Antenna_subcarrier_aa = np.zeros((self.EnvPara["BS_Num"], self.input_fmap, self.input_tdim, self.input_fdim))
             channel_Antenna_subcarrier_ri = np.zeros((self.EnvPara["BS_Num"], self.input_fmap, self.input_tdim, self.input_fdim))
@@ -191,7 +190,7 @@ class generate_Dataset(Dataset):
                 random_number = self.data_list[random.randint(0, len(self.data_list)-1)]
                 random_BS_1 = self.BS_list[random.randint(0, len(self.BS_list)-1)]
                 random_BW_1 = self.BW_list[random.randint(0, len(self.BW_list)-1)]
-                data_path = "/mimer/NOBACKUP/groups/e2e_comms/guangjin/DeepMIMO/O1_3p5/"
+                data_path = "./dataset/O1_3p5/pretrain/"
                 with h5py.File(data_path+f"BS{random_BS_1}_128sc_32at_{random_BW_1}M"+f"/{random_BS_1}_{random_number}.h5py", 'r', swmr=True) as f:
                     channel_real = f["channel_real"][:]
                     channel_imag = f["channel_imag"][:]
@@ -209,7 +208,7 @@ class generate_Dataset(Dataset):
                     random_BW_2 = self.BW_list[random.randint(0, len(self.BW_list)-1)]
                 if (random_BS_1==random_BS_2) & (random_BW_1==random_BW_2):
                     continue
-                data_path = "/mimer/NOBACKUP/groups/e2e_comms/guangjin/DeepMIMO/O1_3p5/"
+                data_path = "./dataset/O1_3p5/pretrain/"
                 with h5py.File(data_path+f"BS{random_BS_2}_128sc_32at_{random_BW_2}M"+f"/{random_BS_2}_{random_number}.h5py", 'r', swmr=True) as f:
                     channel_real = f["channel_real"][:]
                     channel_imag = f["channel_imag"][:]
@@ -309,18 +308,9 @@ class generate_Dataset_test(Dataset):
         self.input_fdim = EnvPara["input_fdim"]
         self.task = EnvPara["task"]
         self.EnvPara = EnvPara
-        if self.task == "inference_SingleBSLoc":
-            self.data_list = np.load("../pre_data/test_10000.npy")
-        elif self.task == "inference_multiBSLoc":
-            self.data_list = np.load("../pre_data/test_10000.npy")
-        elif self.task == "inference_cnn":
-            self.data_list = np.load("../pre_data/test_10000.npy")   
-        elif self.task == "inference_aoa":
-            self.data_list = np.load("../pre_data/test_10000.npy")  
-        elif self.task == "inference_toa":
-            self.data_list = np.load("../pre_data/test_10000.npy")                         
-        else:
-            self.data_list = np.load("../pre_data/pretrain_data.npy")
+
+        # self.data_list = np.load("./dataset/test_5400.npy")
+        self.data_list = np.array([i for i in range(5400)])  # For testing, use all 5400 samples
 
         self.len = len(self.data_list)
         print("data_list",len(self.data_list))
@@ -335,7 +325,7 @@ class generate_Dataset_test(Dataset):
 
 
         random_BW_1 = self.EnvPara["BW"] 
-        data_path = "/mimer/NOBACKUP/groups/e2e_comms/guangjin/DeepMIMO/O1_3p5/"
+        data_path = "./dataset/O1_3p5/test/"
         channel_data_aa = np.zeros((self.EnvPara["BS_Num"],self.input_fmap, self.input_tdim, self.input_fdim))
         channel_Antenna_subcarrier_aa = np.zeros((self.EnvPara["BS_Num"], self.input_fmap, self.input_tdim, self.input_fdim))
         channel_Antenna_subcarrier_ri = np.zeros((self.EnvPara["BS_Num"], self.input_fmap, self.input_tdim, self.input_fdim))
@@ -343,7 +333,8 @@ class generate_Dataset_test(Dataset):
         UElocation_all = np.zeros([self.EnvPara["BS_Num"],4])
         BSconf_all = np.zeros([self.EnvPara["BS_Num"],3])
         flag = 0
-        # for BS_i in range(len(self.BS_list)):
+
+
         for BS_i in range(self.EnvPara["BS_Num"]):
             random_BS_1 = self.BS_list[BS_i]
             with h5py.File(data_path+f"BS{random_BS_1}_128sc_32at_{random_BW_1}M"+f"/{random_BS_1}_{file_number}.h5py", 'r') as f:

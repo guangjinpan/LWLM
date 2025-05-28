@@ -21,7 +21,6 @@ from pytorch_lightning import LightningModule, Trainer
 from torch.utils.data import ConcatDataset
 from torch.utils.data import DataLoader, ConcatDataset, random_split, Dataset
 from pytorch_lightning.callbacks import ModelCheckpoint
-import music
 
 
 EnvPara = {}  
@@ -103,4 +102,4 @@ if __name__ == '__main__':
     # Compute mean error
     mean_error = np.mean(np.sqrt(distances ** 2))
 
-    print(f"mean error: {mean_error}, mse:{np.mean(valid_mes)}")
+    print(f"mean error: {mean_error}, loss:{np.mean(valid_mes)}")
