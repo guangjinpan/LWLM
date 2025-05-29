@@ -51,7 +51,7 @@ python train.py \
   --BW 10 \
   --pilot_subcarrier_interval 1 \
   --pilot_antenna_interval 1 \
-  --BS_Num 4
+  --BS_Num 1
 ```
 
 
