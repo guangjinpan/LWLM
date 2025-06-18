@@ -19,6 +19,11 @@ Thank you very much for your feedback, it can effectively motivate me and help i
 
 ### 🏋️‍♂️ Pretraining
 
+To generate the train datasets (include pretraining data and fine-tuning data), run:
+```bash
+python data_gen_train.py
+```
+
 To generate the test datasets, run:
 ```bash
 python data_gen_test.py
