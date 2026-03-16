@@ -59,7 +59,27 @@ python train.py \
   --BS_Num 4
 ```
 
+## 📦 Dataset
 
+We use two ray-tracing-based channel datasets to evaluate LWLM.
+
+**DeepMIMO (O1 scenario)**  
+- Environment: a typical outdoor urban scenario with two intersecting streets (DeepMIMO-O1).  
+- Pretraining: 4 BSs (BS 3, 4, 9, 10), each with a 32-antenna ULA and 128 subcarriers.  
+- Bandwidths: 10 MHz, 20 MHz, and 50 MHz.  
+- Data coverage: 488,698 UE locations per (BS, bandwidth) setting, yielding a total of $4 \times 3 \times 488{,}698 = 5{,}864{,}376$ channel samples for pretraining.  
+- Fine-tuning (default): 10,000 locations for training, 1,000 for validation, and 10,000 for testing.
+
+**Sionna (cross-domain evaluation)**  
+- Environment: a different 64 m × 64 m scenario with 5 BSs placed at the four corners and the center (Sionna ray-tracing).  
+- System configuration: 10 MHz bandwidth, 32 antennas per BS, and 128 subcarriers.  
+- Fine-tuning/testing: 2,000 labeled samples for fine-tuning and 1,000 labeled samples for testing.
+
+### 🗺️ Scenario Illustrations
+
+![DeepMIMO-O1 scenario illustration](deepmimo_o1_scenario.png)
+
+![Sionna 64 m × 64 m scenario illustration](sionna_64x64_scenario.png)
 
 ##  Citation
 
@@ -73,12 +93,20 @@ If you find this work helpful, please consider citing:
 }
 ```
 
-Some other paper:
+Some other papers:
 ```bash
 @article{pan2025ai,
-  title={AI-driven Wireless Positioning: Fundamentals, Standards, State-of-the-art, and Challenges},
-  author={Pan, Guangjin and Gao, Yuan and Gao, Yilin and Zhong, Zhiyong and Yang, Xiaoyu and Guo, Xinyu and Xu, Shugong},
-  journal={arXiv preprint arXiv:2501.14970},
-  year={2025}
+  title={AI-driven wireless positioning: Fundamentals, standards, state-of-the-art, and challenges},
+  author={Pan, Guangjin and Gao, Yuan and Gao, Yilin and Yu, Wenjun and Zhong, Zhiyong and Yang, Xiaoyu and Guo, Xinyu and Xu, Shugong},
+  journal={IEEE Communications Surveys \& Tutorials},
+  year={2025},
+  publisher={IEEE}
+}
+
+@article{huang2026retrieval,
+  title={A Retrieval-Assisted Framework for Wireless Localization},
+  author={Huang, Haoyu and Pan, Guangjin and Huang, Kaixuan and Zhang, Shunqing and Zhang, Yuhao and Keskin, Musa Furkan and Xing, Zheng and Wymeersch, Henk},
+  journal={arXiv preprint arXiv:2603.06158},
+  year={2026}
 }
 ```
