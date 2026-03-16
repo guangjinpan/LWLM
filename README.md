@@ -59,7 +59,7 @@ python train.py \
   --BS_Num 4
 ```
 
-## 📦 Dataset
+## 📦 Dataset & Scenario Illustrations
 
 We use two ray-tracing-based channel datasets to evaluate LWLM.
 
@@ -70,16 +70,18 @@ We use two ray-tracing-based channel datasets to evaluate LWLM.
 - Data coverage: 488,698 UE locations per (BS, bandwidth) setting, yielding a total of $4 \times 3 \times 488{,}698 = 5{,}864{,}376$ channel samples for pretraining.  
 - Fine-tuning (default): 10,000 locations for training, 1,000 for validation, and 10,000 for testing.
 
+![DeepMIMO-O1 scenario illustration](deepmimo_o1_scenario.png)
+
 **Sionna (cross-domain evaluation)**  
 - Environment: a different 64 m × 64 m scenario with 5 BSs placed at the four corners and the center (Sionna ray-tracing).  
 - System configuration: 10 MHz bandwidth, 32 antennas per BS, and 128 subcarriers.  
 - Fine-tuning/testing: 2,000 labeled samples for fine-tuning and 1,000 labeled samples for testing.
 
-### 🗺️ Scenario Illustrations
-
-![DeepMIMO-O1 scenario illustration](deepmimo_o1_scenario.png)
-
 ![Sionna 64 m × 64 m scenario illustration](sionna_64x64_scenario.png)
+
+
+
+
 
 ##  Citation
 
