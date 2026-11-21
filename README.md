@@ -90,8 +90,11 @@ If you find this work helpful, please consider citing:
 @article{pan2025large,
   title={Large Wireless Localization Model (LWLM): A Foundation Model for Positioning in 6G Networks},
   author={Pan, Guangjin and Huang, Kaixuan and Chen, Hui and Zhang, Shunqing and H{\"a}ger, Christian and Wymeersch, Henk},
-  journal={arXiv preprint arXiv:2505.10134},
-  year={2025}
+  journal={IEEE Trans. Wireless Commun.},
+  year={2026},
+  volume={25},
+  number={},
+  pages={21449-21464},
 }
 ```
 
