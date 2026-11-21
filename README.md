@@ -100,6 +100,16 @@ If you find this work helpful, please consider citing:
 
 Some other papers:
 ```bash
+@article{Ren2026GAPLWLM,
+  author={Ren, Zichen and Pan, Guangjin and Huang, Kaixuan and Chen, Xiaojing and Zhang, Shunqing and Xing, Zheng and Wymeersch, Henk},
+  journal={IEEE Wireless Commun. Lett.},
+  title={GAP-LWLM: Geometry-Aware Prompt Tuning for Cross-Scene Localization with a Wireless Foundation Model},
+  year={2026},
+  volume={},
+  number={},
+  pages={1-1},
+}
+
 @article{pan2025ai,
   title={AI-driven wireless positioning: Fundamentals, standards, state-of-the-art, and challenges},
   author={Pan, Guangjin and Gao, Yuan and Gao, Yilin and Yu, Wenjun and Zhong, Zhiyong and Yang, Xiaoyu and Guo, Xinyu and Xu, Shugong},
